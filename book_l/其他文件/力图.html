@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同人小说力导向图</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 1200px; height: 800px; margin: auto;"></div>
+    <script>
+        // 清洗后的数据，替换为 Python 输出的 JSON 数据
+        const data ={
+    "nodes": [
+        {
+            "name": "王者：曝光皮肤时空，震惊全大陆",
+            "category": "轻幻想"
+        },
+        {
+            "name": "我刷原神崩铁短视频，角色破防了",
+            "category": "日常类"
+        },
+        {
+            "name": "都市精灵：我和精灵有海克斯天赋",
+            "category": "日常类"
+        },
+        {
+            "name": "三国杀：开局无双！万军取首！",
+            "category": "日常类"
+        },
+        {
+            "name": "原神：璃月开网吧，七神身份暴露",
+            "category": "轻幻想"
+        },
+        {
+            "name": "末日：开局我种的向日葵变异了",
+            "category": "轻幻想"
+        },
+        {
+            "name": "我，监考诸天，考哭百万主角",
+            "category": "轻幻想"
+        },
+        {
+            "name": "星际时代，我的游戏可以变现！",
+            "category": "日常类"
+        },
+        {
+            "name": "木筏求生：开局百万神级选择",
+            "category": "日常类"
+        },
+        {
+            "name": "都市：我真没站椅子上直播",
+            "category": "日常类"
+        },
+        {
+            "name": "末日：开局百万神级选择",
+            "category": "日常类"
+        }
+    ],
+    "edges": [
+        {
+            "source": "我刷原神崩铁短视频，角色破防了",
+            "target": "都市精灵：我和精灵有海克斯天赋"
+        },
+        {
+            "source": "我刷原神崩铁短视频，角色破防了",
+            "target": "三国杀：开局无双！万军取首！"
+        },
+        {
+            "source": "我刷原神崩铁短视频，角色破防了",
+            "target": "星际时代，我的游戏可以变现！"
+        },
+        {
+            "source": "我刷原神崩铁短视频，角色破防了",
+            "target": "木筏求生：开局百万神级选择"
+        },
+        {
+            "source": "我刷原神崩铁短视频，角色破防了",
+            "target": "都市：我真没站椅子上直播"
+        },
+        {
+            "source": "我刷原神崩铁短视频，角色破防了",
+            "target": "末日：开局百万神级选择"
+        },
+        {
+            "source": "都市精灵：我和精灵有海克斯天赋",
+            "target": "三国杀：开局无双！万军取首！"
+        },
+        {
+            "source": "都市精灵：我和精灵有海克斯天赋",
+            "target": "星际时代，我的游戏可以变现！"
+        },
+        {
+            "source": "都市精灵：我和精灵有海克斯天赋",
+            "target": "木筏求生：开局百万神级选择"
+        },
+        {
+            "source": "都市精灵：我和精灵有海克斯天赋",
+            "target": "都市：我真没站椅子上直播"
+        },
+        {
+            "source": "都市精灵：我和精灵有海克斯天赋",
+            "target": "末日：开局百万神级选择"
+        },
+        {
+            "source": "三国杀：开局无双！万军取首！",
+            "target": "星际时代，我的游戏可以变现！"
+        },
+        {
+            "source": "三国杀：开局无双！万军取首！",
+            "target": "木筏求生：开局百万神级选择"
+        },
+        {
+            "source": "三国杀：开局无双！万军取首！",
+            "target": "都市：我真没站椅子上直播"
+        },
+        {
+            "source": "三国杀：开局无双！万军取首！",
+            "target": "末日：开局百万神级选择"
+        },
+        {
+            "source": "星际时代，我的游戏可以变现！",
+            "target": "木筏求生：开局百万神级选择"
+        },
+        {
+            "source": "星际时代，我的游戏可以变现！",
+            "target": "都市：我真没站椅子上直播"
+        },
+        {
+            "source": "星际时代，我的游戏可以变现！",
+            "target": "末日：开局百万神级选择"
+        },
+        {
+            "source": "木筏求生：开局百万神级选择",
+            "target": "都市：我真没站椅子上直播"
+        },
+        {
+            "source": "木筏求生：开局百万神级选择",
+            "target": "末日：开局百万神级选择"
+        },
+        {
+            "source": "都市：我真没站椅子上直播",
+            "target": "末日：开局百万神级选择"
+        },
+        {
+            "source": "王者：曝光皮肤时空，震惊全大陆",
+            "target": "原神：璃月开网吧，七神身份暴露"
+        },
+        {
+            "source": "王者：曝光皮肤时空，震惊全大陆",
+            "target": "末日：开局我种的向日葵变异了"
+        },
+        {
+            "source": "王者：曝光皮肤时空，震惊全大陆",
+            "target": "我，监考诸天，考哭百万主角"
+        },
+        {
+            "source": "原神：璃月开网吧，七神身份暴露",
+            "target": "末日：开局我种的向日葵变异了"
+        },
+        {
+            "source": "原神：璃月开网吧，七神身份暴露",
+            "target": "我，监考诸天，考哭百万主角"
+        },
+        {
+            "source": "末日：开局我种的向日葵变异了",
+            "target": "我，监考诸天，考哭百万主角"
+        }
+    ]
+}
+
+        const chartDom = document.getElementById('main');
+        const myChart = echarts.init(chartDom);
+
+        const option = {
+            title: {
+                text: '同人小说力导向图',
+                left: 'center'
+            },
+            tooltip: {
+                formatter: function (params) {
+                    if (params.dataType === 'node') {
+                        return '书名: ' + params.name + '<br/>分类: ' + params.category;
+                    } else if (params.dataType === 'edge') {
+                        return '关联: ' + params.source + ' -> ' + params.target;
+                    }
+                }
+            },
+            series: [{
+                type: 'graph',
+                layout: 'force',
+                force: {
+                    repulsion: 300,
+                    edgeLength: [50, 150]
+                },
+                roam: true,
+                data: data.nodes.map(node => ({
+                    name: node.name,
+                    category: node.category,
+                    symbolSize: 10 + Math.random() * 20
+                })),
+                links: data.edges,
+                categories: Array.from(new Set(data.nodes.map(node => node.category))).map(category => ({ name: category })),
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                lineStyle: {
+                    color: 'source',
+                    curveness: 0.3
+                }
+            }]
+        };
+
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
