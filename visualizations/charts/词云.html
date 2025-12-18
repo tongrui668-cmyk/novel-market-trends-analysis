@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交互式词云图</title>
+    <!-- 加载 ECharts 和词云插件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud/dist/echarts-wordcloud.min.js"></script>
+</head>
+<body>
+    <h1>基于书名的交互式词云图</h1>
+    <!-- 调整图的容器大小 -->
+    <div id="main" style="width: 800px; height: 600px; margin: auto;"></div>
+    <script>
+        var data = [
+            { "name": "聊天", "value": 86 },
+            { "name": "综武", "value": 66 },
+            { "name": "综漫", "value": 72 },
+            { "name": "穿越", "value": 50 },
+            { "name": "神话", "value": 75 },
+            { "name": "直播", "value": 194 },
+            { "name": "全球", "value": 104 },
+            { "name": "反派", "value": 68 },
+            { "name": "四合院", "value": 181 },
+            { "name": "精灵", "value": 62 },
+            { "name": "原神", "value": 87 },
+            { "name": "我成", "value": 56 },
+            { "name": "封神", "value": 59 },
+            { "name": "视频", "value": 59 },
+            { "name": "全民", "value": 135 },
+            { "name": "盘点", "value": 108 },
+            { "name": "娱乐", "value": 176 },
+            { "name": "曝光", "value": 232 },
+            { "name": "开局", "value": 1278 },
+            { "name": "港片", "value": 53 },
+            { "name": "世界", "value": 118 },
+            { "name": "抗战", "value": 57 },
+            { "name": "签到", "value": 111 },
+            { "name": "洪荒", "value": 296 },
+            { "name": "悟性", "value": 76 },
+            { "name": "逆天", "value": 81 },
+            { "name": "大秦", "value": 155 },
+            { "name": "打造", "value": 93 },
+            { "name": "扮演", "value": 72 },
+            { "name": "大明", "value": 130 },
+            { "name": "特种兵", "value": 50 },
+            { "name": "大唐", "value": 90 },
+            { "name": "重生", "value": 104 },
+            { "name": "三国", "value": 101 },
+            { "name": "十大", "value": 56 },
+            { "name": "国运", "value": 72 },
+            { "name": "西游", "value": 89 },
+            { "name": "最强", "value": 64 },
+            { "name": "时代", "value": 57 },
+            { "name": "武侠", "value": 102 },
+            { "name": "游戏", "value": 66 },
+            { "name": "都市", "value": 152 },
+            { "name": "全网", "value": 55 },
+            { "name": "玄幻", "value": 84 },
+            { "name": "无限", "value": 54 },
+            { "name": "我能", "value": 64 },
+            { "name": "复苏", "value": 63 }
+        ];
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+
+        var option = {
+            tooltip: {
+                show: true,
+                formatter: function (params) {
+                    return params.name + ': ' + params.value; // 显示词语和出现次数
+                }
+            },
+            series: [{
+                type: 'wordCloud',
+                gridSize: 1,
+                sizeRange: [20, 100], // 调整词语大小范围
+                rotationRange: [-90, 90],
+                shape: 'circle', // 图形可以调整为 'diamond', 'triangle' 等
+                textStyle: {
+                    fontFamily: 'sans-serif',
+                    fontWeight: 'bold',
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * 255),
+                            Math.round(Math.random() * 255),
+                            Math.round(Math.random() * 255)
+                        ].join(',') + ')';
+                    }
+                },
+                data: data
+            }]
+        };
+
+        myChart.setOption(option);
+    </script>
+    <div style="padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; margin: 10px 0;">
+        <h3>图表说明</h3>
+        <p>展示书名中高频出现的关键词。</p>
+        <h3>数据来源</h3>
+        <p>数据来源：阿里数据 <a href="https://tianchi.aliyun.com/dataset/191720" target="_blank">https://tianchi.aliyun.com/dataset/191720</a></p>
+        <h3>现实意义</h3>
+        <p>通过书名中的高频词汇，可以发现当前受欢迎的主题和趋势。</p>
+    </div>
+</body>
+</html>
