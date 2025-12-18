@@ -7,7 +7,7 @@
 ## 项目结构
 
 ```
-第24组-小说市场趋势分析/
+小说市场趋势分析/
 ├── visualizations/        # 可视化结果HTML文件
 │   ├── charts/           # 各类可视化图表
 │   │   ├── book.json                 # 数据文件
@@ -25,12 +25,9 @@
 ├── data/                 # 原始数据文件
 │   └── 飞卢小说数据.xlsx   # 小说数据集
 ├── scripts/              # Python处理脚本
-│   ├── book_bin.py       # 数据处理脚本
 │   ├── book_bin1.py      # 数据处理脚本
 │   ├── book_ciyun.py     # 词云生成脚本
-│   ├── book_ciyun2.py    # 词云生成脚本
 │   ├── book_lei.py       # 分类分析脚本
-│   ├── book_san.py       # 散点图生成脚本
 │   ├── book_san_1.py     # 散点图生成脚本
 │   ├── book_xuri.py      # 旭日图生成脚本
 │   ├── book_zhe.py       # 折线图生成脚本
@@ -38,8 +35,7 @@
 ├── README.md             # 项目文档
 ├── .gitignore            # Git忽略规则
 ├── 项目改进建议.md        # 优化建议文档
-├── 第24小组数据可视化大作业展示.mp4  # 项目展示视频
-└── 第24小组数据可视化实验报告2022级.docx  # 实验报告
+└── 小说数据可视化展示.mp4  # 项目展示视频
 ```
 
 ## 技术栈
@@ -71,7 +67,13 @@
 - `飞卢小说数据.xlsx`: 原始小说数据集
 
 ### 脚本文件 (scripts/)
-- `*.py`: 各种数据处理和可视化生成脚本
+- `book_bin1.py`: 数据处理脚本
+- `book_ciyun.py`: 词云图生成脚本
+- `book_lei.py`: 小说分类分析脚本
+- `book_san_1.py`: 散点图可视化脚本
+- `book_xuri.py`: 旭日图可视化脚本
+- `book_zhe.py`: 折线图可视化脚本
+- `book_zhu.py`: 柱状图可视化脚本
 
 ## 项目特色
 
@@ -87,4 +89,15 @@
 ## 许可证
 
 MIT License
-```
+
+## GitHub仓库
+
+本项目已开源在GitHub上，欢迎访问：
+
+- **仓库地址**: [https://github.com/tongrui668-cmyk/novel-market-trends-analysis.git](https://github.com/tongrui668-cmyk/novel-market-trends-analysis.git)
+
+## 更新日志
+
+- 2025-12-18: 项目优化，标准化结构，合并冗余脚本，提高代码质量
+- 2025-12-18: 项目上传至GitHub，添加.gitignore文件
+
