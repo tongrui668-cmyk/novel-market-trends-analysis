@@ -1,75 +1,66 @@
-# Python
-*.py[cod]
+# 虚拟环境
+venv/
+env/
+*.venv/
+
+# Python字节码文件
 __pycache__/
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+*.py[cod]
+*$py.class
 
-# PyCharm
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# Windows
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-*.stackdump
-[Dd]esktop.ini
-$RECYCLE.BIN/
-*.lnk
-
-# macOS
+# 操作系统文件
 .DS_Store
-.AppleDouble
-.LSOverride
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
-# Linux
-*~
-.fuse_hidden*
-.directory
-.Trash-*
-.nfs*
-
-# 大型二进制文件
-*.mp4
-*.avi
-*.mov
-*.wmv
-*.flv
-
-# 临时文件
-*.tmp
-*.temp
+# IDE文件
+.idea/
+.vscode/
 *.swp
 *.swo
 *~
 
 # 日志文件
 *.log
-*.log.*
 logs/
 
-# 数据文件（可选，根据需要）
-# 如果数据文件过大，可以考虑忽略
-# *.xlsx
-# *.csv
-# *.json
-```
+# 数据文件
+*.csv
+*.xlsx
+*.json
+*.db
+*.sqlite
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# 配置文件
+.env
+.env.local
+.env.*.local
+
+# 构建文件
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# 测试覆盖率
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# 其他
+*.bak
+*.old
+*.backup
