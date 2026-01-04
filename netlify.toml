@@ -9,7 +9,7 @@
 [[redirects]]
   # 将根路径重写(透明重定向)到主可视化页面
   from = "/"
-  to = "/visualizations/整合.html"
+  to = "/visualizations/dashboard.html"
   status = 200
   force = true
 
@@ -21,7 +21,7 @@
 
 # 字符编码头
 [[headers]]
-  for = "/*"
+  for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=utf-8"
     X-Content-Type-Options = "nosniff"
