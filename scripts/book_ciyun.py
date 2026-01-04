@@ -88,7 +88,7 @@ def process_book_titles(input_file, output_json, output_html):
 
 
 # 文件路径设置
-input_file = "D:/飞卢小说数据.xlsx"  # 替换为您的文件路径
+input_file = "../data/飞卢小说数据.xlsx"  # 替换为您的文件路径
 output_json = "word_freq.json"  # 替换为输出 JSON 的路径
 output_html = "book_titles_wordcloud.html"  # 替换为输出 HTML 的路径
 

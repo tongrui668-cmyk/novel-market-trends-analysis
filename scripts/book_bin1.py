@@ -90,7 +90,7 @@ def generate_html(input_json, output_html):
         f.write(html_template)
 
 # 执行清洗和生成
-input_file = 'D:/飞卢小说数据.xlsx'
+input_file = '../data/飞卢小说数据.xlsx'
 output_json = 'cleaned_data.json'
 output_html = 'reward_visualization.html'
 

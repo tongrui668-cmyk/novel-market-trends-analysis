@@ -1,0 +1,27 @@
+# Netlify配置文件
+[build]
+  # 设置发布目录为项目根目录
+  publish = "."
+  # 不需要构建命令，因为是纯静态HTML项目
+  command = ""
+
+# 重定向规则
+[[redirects]]
+  # 将根路径重写(透明重定向)到主可视化页面
+  from = "/"
+  to = "/visualizations/整合.html"
+  status = 200
+  force = true
+
+# 404错误处理
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# 字符编码头
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    X-Content-Type-Options = "nosniff"
