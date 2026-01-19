@@ -14,23 +14,38 @@
         .tabs {
             display: flex;
             justify-content: space-around;
-            background-color: #f1f1f1;
-            padding: 10px 0;
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 2px solid #e9ecef;
         }
         .tab {
             cursor: pointer;
-            padding: 10px 20px;
-            border: 1px solid #ddd;
+            padding: 12px 24px;
+            border: 1px solid #dee2e6;
             background-color: white;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #495057;
+            transition: all 0.3s ease;
+        }
+        .tab:hover {
+            background-color: #e9ecef;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .tab.active {
-            background-color: #ddd;
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.3);
         }
         .content {
             display: none;
-            height: calc(100% - 50px); /* 动态适配高度，减去导航栏 */
+            height: calc(100% - 80px); /* 动态适配高度，减去导航栏 */
             box-sizing: border-box;
+            padding: 20px;
         }
         .content.active {
             display: block;
@@ -52,6 +67,7 @@
         <div class="tab" data-target="sunburst">分类旭日图</div>
         <div class="tab" data-target="wordcloud">书名词云图</div>
         <div class="tab" data-target="litu">轻小说力图</div>
+        <div class="tab" data-target="report">市场趋势报告</div>
     </div>
 
     <div class="content active" id="scatter">
@@ -77,6 +93,9 @@
     </div>
     <div class="content" id="litu">
         <iframe src="./charts/力图.html"></iframe>
+    </div>
+    <div class="content" id="report">
+        <iframe src="./report.html"></iframe>
     </div>
     <script>
         const tabs = document.querySelectorAll('.tab');
