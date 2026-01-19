@@ -18,6 +18,9 @@
             padding: 15px 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             border-bottom: 2px solid #e9ecef;
+            overflow-x: auto; /* 允许水平滚动 */
+            white-space: nowrap; /* 防止按钮换行 */
+            scrollbar-width: thin; /* 美化滚动条 */
         }
         .tab {
             cursor: pointer;
@@ -55,6 +58,31 @@
             width: 100%;
             min-height: 800px; /* 最小高度 */
             border: none;
+        }
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        .back-to-top:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -129,6 +157,29 @@
 
         // 页面加载完成后设置高度
         window.addEventListener('load', setIframeHeights);
+
+        // 回到顶部按钮功能
+        const backToTopButton = document.createElement('div');
+        backToTopButton.className = 'back-to-top';
+        backToTopButton.innerHTML = '↑';
+        document.body.appendChild(backToTopButton);
+
+        // 监听滚动事件
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // 点击回到顶部
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
